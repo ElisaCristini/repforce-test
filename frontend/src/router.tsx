@@ -1,9 +1,17 @@
 import { createRouter, createRoute, createRootRoute, Outlet } from "@tanstack/react-router";
 import { CatalogPage } from "@/pages/catalog";
 import { ProductPage } from "@/pages/product";
+import { Header } from "@/components/Header";
 
 const rootRoute = createRootRoute({
-  component: Outlet,
+  component: () => (
+    <div className="min-h-screen bg-background">
+      <Header />
+      <main>
+        <Outlet  />
+      </main>
+    </div>
+  ),
 });
 
 const indexRoute = createRoute({
